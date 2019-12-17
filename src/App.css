@@ -1,0 +1,173 @@
+/* @import '~antd/dist/antd.css'; */
+.App {
+    text-align: left;
+}
+
+.App .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.App .trigger:hover {
+    color: #1890ff;
+}
+
+.App .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+
+.App .ant-layout {
+    /* width:1008px; */
+    margin: 0 auto;
+    min-height: 640px;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*导航列表样式部分*/
+
+.menu-list {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    list-style: none;
+    background-color: #eee;
+    padding: 0;
+    margin: 0;
+    padding-top: 30px;
+    overflow: auto;
+}
+
+.menu-list li {
+    padding: 10px 15px;
+    color: #2175bc;
+}
+
+.menu-list li.is-active {
+    background-color: #2175bc;
+    color: #fff !important;
+}
+
+.link {
+    display: block;
+    cursor: pointer;
+}
+.formtest div {
+    margin-bottom: 10px;
+}
+/* label {
+    display: block;
+    float: left;
+    width: 80px;
+    line-height: 32px;
+    color: red;
+    text-align: right;
+} */
+input {
+    padding: 7px;
+    outline: none;
+    border: 1px solid #dedede;
+}
+
+button {
+    color: #fff;
+    background-color: #38f;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.wizard-finish-step li {
+    list-style: none;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.wizard-finish-step li span {
+    line-height: 30px;
+}
+.wizard-finish-step label {
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+    color: #000;
+}
+
+
+.basiclayout .ant-row>div:not(.gutter-row), [id^='components-grid-demo-'] .code-box-demo .ant-row>div:not(.gutter-row), .ant-row-flex>div:not(.gutter-row), [id^='components-grid-demo-'] .code-box-demo .ant-row-flex>div:not(.gutter-row) {
+    padding: 16px 0;
+    background: #00a0e9;
+    margin-top:10px;
+    text-align: center;
+}
+
+.basiclayout .ant-row>div:not(.gutter-row):nth-child(2n + 1), [id^='components-grid-demo-'] .code-box-demo .ant-row>div:not(.gutter-row):nth-child(2n + 1), .ant-row-flex>div:not(.gutter-row):nth-child(2n + 1), [id^='components-grid-demo-'] .code-box-demo .ant-row-flex>div:not(.gutter-row):nth-child(2n + 1) {
+    background: rgba(0,160,233,0.7);
+    margin-top:10px;
+    text-align: center;
+}
+.check-enable{
+    margin-top:10px;
+    margin-bottom:10px;
+    overflow: hidden;
+}
+.check-enable .ant-checkbox-wrapper{
+    width:180px;
+    margin-bottom:10px;
+}
+
+.formtest .dynamic-delete-button {
+    cursor: pointer;
+    position: relative;
+    top: 4px;
+    font-size: 24px;
+    color: #999;
+    transition: all .3s;
+  }
+.formtest .dynamic-delete-button:hover {
+    color: #777;
+  }
+.formtest .dynamic-delete-button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .formtest label,.ant-modal label{
+      width:auto;
+  }

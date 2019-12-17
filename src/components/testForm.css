@@ -1,0 +1,17 @@
+:global .testForm .ant-form-explain{
+    font-size: 0px;
+}
+
+.butgroup{
+    width:420px;
+    margin:0 auto;
+}
+.errorTips{
+    height: 40px;
+}
+.errorTips p{
+    padding-left:300px;
+    color:red;
+    background:url('https://pic5.40017.cn/01/001/5f/15/rBLkBVqojE-AXL9oAAAUHin2X_M011.png') no-repeat;
+    background-position: 275px -49px;
+}
