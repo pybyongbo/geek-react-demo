@@ -3,10 +3,10 @@ import React from 'react';
 import styles from "./ChatApp.css";
 class MessageList extends React.Component {
     state = {
-      styleobj:{
-        color: 'red',
-        marginLeft:'10px'
-      }
+        styleobj: {
+            color: 'red',
+            marginLeft: '10px'
+        }
     }
     render() {
         return (
@@ -14,7 +14,7 @@ class MessageList extends React.Component {
                 {this.props.messages.map((msg, index) => (
                     <li key={index}>
                         {msg}
-                        <a onClick={()=>this.props.delItem(index)} style={this.state.styleobj}>
+                        <a onClick={() => this.props.delItem(index)} style={this.state.styleobj}>
                             删除
                         </a>
                     </li>
@@ -32,17 +32,19 @@ export class ChatApp extends React.Component {
 
     };
     componentDidMount() {
-      this.timerID = setInterval(() => this.tick(), 1000);
+        let aToCasesA = ['SUIBICHUANJI', 'ITCLANCODER', 'ZHONGGUO', 'BEIJING', 'AGE'];
+        console.log(this.toLowerCase(aToCasesA));
+        this.timerID = setInterval(() => this.tick(), 1000);
     };
 
-    componentWillUnmount(){
-      clearInterval(this.timerID);
+    componentWillUnmount() {
+        clearInterval(this.timerID);
     }
 
-    tick(){
-      this.setState({
-        time:new Date()
-      })
+    tick() {
+        this.setState({
+            time: new Date()
+        })
     }
 
     handleInput = evt => {
@@ -51,19 +53,19 @@ export class ChatApp extends React.Component {
         });
     };
 
-    onKeyUp = e=>{
+    onKeyUp = e => {
         e.keyCode === 13 && this.handleSend();
     };
 
     handleSend = e => {
 
         var itemArray = this.state.messages;
-        if(this._inputElement.value) {
-          itemArray.push(this._inputElement.value);
-          this.setState({
-              messages: itemArray,
-              inputMsg: ''
-          });
+        if (this._inputElement.value) {
+            itemArray.push(this._inputElement.value);
+            this.setState({
+                messages: itemArray,
+                inputMsg: ''
+            });
         } else {
             alert("文本框值不能为空")
         }
@@ -71,12 +73,30 @@ export class ChatApp extends React.Component {
     };
 
     delItem = index => {
-    
+
         this.state.messages.splice(index, 1);
         this.setState({
             messages: this.state.messages
         });
     };
+
+    /**
+    * 需求:编写一个函数，处理传入包含大写字符串的数组，返回包含相同小写字符串的数组
+    * 声明式编程实现toLowerCase
+    * 输入数组的元素传递给map函数，然后返回包含小写值的新数组
+     */
+    toLowerCase = arr => {
+        return arr.map((item) => {
+            return item.toLowerCase()
+        })
+    }
+
+    /** 或者这种写法也可以
+        toLowerCase = arr => arr.map(function(item) {
+            return item.toLowerCase();
+            })
+    */
+
 
     render() {
         return (
@@ -87,11 +107,11 @@ export class ChatApp extends React.Component {
                         ref={a => (this._inputElement = a)}
                         value={this.state.inputMsg}
                         onChange={this.handleInput}
-                        onKeyUp = {this.onKeyUp}
+                        onKeyUp={this.onKeyUp}
                     />
-                    <button  onClick={this.handleSend}>Send</button>
+                    <button onClick={this.handleSend}>Send</button>
                 </div>
-                <h2 className={styles.test} style={{marginLeft:'5px',marginTop:'10px'}}>你好,现在时间是:{this.state.time.toLocaleString()}</h2>
+                <h2 className={styles.test} style={{ marginLeft: '5px', marginTop: '10px' }}>你好,现在时间是:{this.state.time.toLocaleString()}</h2>
             </div>
         );
     }
