@@ -48,6 +48,8 @@ import testForm from "./components/testForm"
 
 import countdown from "./components/countdown"
 
+import hoccomponent from "./components/hoccomponent.js"
+
 // import PortalSample from './components/dialog/portalSample';
 
 const styles = {
@@ -82,7 +84,9 @@ const routeMap = {
     testDemo2:testDemo2,
     testHooc:testHooc,
     testForm:testForm,
-    countdown:countdown
+    countdown:countdown,
+    hoccomponent:hoccomponent
+    
 
 };
 
