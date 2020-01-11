@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Divider, Form, Input, Select, Radio, message, Alert } from 'antd';
 import { Link } from "react-router-dom";
+import AccoutInput from './combinaform/index'
 import './testForm.css'
 const { Option } = Select;
 class testForm extends React.Component {
@@ -186,6 +187,14 @@ class testForm extends React.Component {
                     <div className="errorTips">
                         <p>{this.state.errorText}</p>
                     </div>
+                    <Form.Item>
+                        {getFieldDecorator('price', {
+                            initialValue: {  cusPayType:"",cusPayDate:"", },
+                           // rules: [{ validator: this.checkPrice }],
+                        })( <AccoutInput />)}
+                    </Form.Item>
+                   
+
                     <Form.Item>
                         <div className="butgroup">
                             <Button type="primary" htmlType="submit" style={{ marginRight: '30px' }}>
