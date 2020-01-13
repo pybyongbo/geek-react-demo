@@ -4,11 +4,11 @@ import { Input, Select, Row, Col } from 'antd';
 const { Option } = Select;
 
 class AccountInput extends React.Component {
-    static getDerivedStateFromProps(props) {
-        if ('value' in props) {
+    static getDerivedStateFromProps(nextProps,prevState) {
+        if ('value' in nextProps) {
             return {
-                ...(props.value || {}),
-                addonBeforeText: props.value.custPayType === 'PT_1' ? '货到' : '票到',
+                ...(nextProps.value || {}),
+                addonBeforeText: nextProps.value.custPayType === 'PT_1' ? '货到' : '票到',
             };
         }
         return null;
