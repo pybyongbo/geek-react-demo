@@ -98,6 +98,7 @@ class testForm extends React.Component {
     }
 
     render() {
+        const {form} = this.props;
         const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
         const { formLayout } = this.state;
         const formItemLayout = formLayout === 'horizontal' ?
@@ -189,9 +190,9 @@ class testForm extends React.Component {
                     </div>
                     <Form.Item>
                         {getFieldDecorator('price', {
-                            initialValue: {  cusPayType:"",cusPayDate:"", },
+                            initialValue: {  custPayType:"",custPayDate:"" },
                            // rules: [{ validator: this.checkPrice }],
-                        })( <AccoutInput />)}
+                        })( <AccoutInput form={form} selectfieldKey="custPayType" inputfieldKey="custPayDate"/>)}
                     </Form.Item>
                    
 
