@@ -64,41 +64,45 @@ class testForm extends React.Component {
         e.preventDefault();
         const { getFieldError, getFieldsError, setFields, getFieldValue, getFieldsValue } = this.props.form;
         // console.log(typeof getFieldValue('code'));
-        // return;
-        this.props.form.validateFields({ first: true }, (err, values) => {
-            console.log(values);
+        // return; 
+        this.props.form.validateFields({ first: true },(err, values) => {
+            // console.log(values);
             // console.log(getFieldsError().password[0], getFieldsError().username[0]);
             // if(!err){
             //     console.log(values);
             // }
-            if (!values.username) {
-                this.setState({
-                    errorText: '用户名不能为空'
-                })
-            } else if (!values.password) {
-                this.setState({
-                    errorText: '用户密码不能为空'
-                })
-            } else if (!values.phone) {
-                this.setState({
-                    errorText: '手机号码不能为空'
-                })
-            } else if (!values.code) {
-                this.setState({
-                    errorText: '号段不能为空'
-                })
-            } else {
-                this.setState({
-                    errorText: ''
-                })
-                console.log(values);
+            // if (!values.username) {
+            //     this.setState({
+            //         errorText: '用户名不能为空'
+            //     })
+            // } else if (!values.password) {
+            //     this.setState({
+            //         errorText: '用户密码不能为空'
+            //     })
+            // } else if (!values.phone) {
+            //     this.setState({
+            //         errorText: '手机号码不能为空'
+            //     })
+            // } else if (!values.code) {
+            //     this.setState({
+            //         errorText: '号段不能为空'
+            //     })
+            // } else {
+            //     this.setState({
+            //         errorText: ''
+            //     })
+            //     console.log(values);
 
+            // }
+            if (!err) {
+                delete values.price;
+                console.log(values)
             }
         })
     }
 
     render() {
-        const {form} = this.props;
+        const { form } = this.props;
         const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
         const { formLayout } = this.state;
         const formItemLayout = formLayout === 'horizontal' ?
@@ -150,7 +154,7 @@ class testForm extends React.Component {
                         </Radio.Group>
                     </Form.Item>
 
-                    <Form.Item label="用户名" {...formItemLayout} help="Should be combination of numbers & alphabets">
+                    <Form.Item label="用户名" {...formItemLayout}>
                         {getFieldDecorator('username', {
                             rules: [{ required: true, message: '请输入用户名' }],
                         })(
@@ -168,15 +172,34 @@ class testForm extends React.Component {
 
                     <Form.Item label="电话" {...formItemLayout}>
                         {getFieldDecorator('phone', {
-                            rules: [{ required: true, message: 'Please input your phone number!' }],
+                            rules: [{ required: true, message: '请输入电话号码' }],
                         })(<Input addonBefore={prefixSelector} style={{ width: '100%' }} />)}
                     </Form.Item>
 
-                    <Form.Item label="号段" {...formItemLayout} hasFeedback validateStatus="success">
+                    <Form.Item label="号段" {...formItemLayout}>
                         {getFieldDecorator('code', {
                             // initialValue:123456,
                             rules: [{
-                                required: true, type: 'number', message: '只支持数字类型', transform: (value) => {
+                                required: true,
+                                type: 'number',
+                                message: '请输入号段',
+                                transform: (value) => {
+                                    return Number(value)
+                                }
+                            }],
+                        })(
+                            <Input placeholder="请输入号段" />,
+                        )}
+                    </Form.Item>
+
+                    <Form.Item label="号段" {...formItemLayout}>
+                        {getFieldDecorator('createFileDate', {
+                            initialValue:'',
+                            rules: [{
+                                required: true,
+                                type: 'number',
+                                message: '请输入号段',
+                                transform: (value) => {
                                     return Number(value)
                                 }
                             }],
@@ -192,9 +215,9 @@ class testForm extends React.Component {
                         {getFieldDecorator('price', {
                             initialValue: {  custPayType:"",custPayDate:"" },
                            // rules: [{ validator: this.checkPrice }],
-                        })( <AccoutInput form={form} selectfieldKey="custPayType" inputfieldKey="custPayDate"/>)}
+                        })( <AccoutInput form={form} selectfieldKey="custPayType" inputfieldKey="custPayDate22"/>)}
                     </Form.Item>
-                   
+                    {/* <AccoutInput form={form} selectfieldKey="custPayType" inputfieldKey="custPayDate" /> */}
 
                     <Form.Item>
                         <div className="butgroup">
