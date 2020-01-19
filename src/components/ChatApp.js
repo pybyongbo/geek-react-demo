@@ -1,6 +1,59 @@
 import React from 'react';
 // import './ChatApp.css';
 import styles from "./ChatApp.css";
+
+import { Form, Select } from 'antd';
+const { Option } = Select;
+
+const data = [
+    { name: '全部', value: 0 },
+    { name: '点我达', value: 1 },
+    { name: '点我吧', value: 2 },
+    { name: '饿了么', value: 3 },
+]
+
+class Selectmodal extends React.Component {
+
+    selectChange = (nextValues) => {
+        const { getFieldProps, setFieldsValue, getFieldValue } = this.props.form;
+        let tragetValues = [];
+        const nowValues = getFieldValue('name') || [];
+
+        if (nowValues.length > nextValues.length) {
+            tragetValues = nextValues;
+        } else {
+            const selectValue = nextValues.find(nv => nowValues.indexOf(nv) === -1)
+            if (selectValue === '0') {
+                tragetValues = ['0']
+            } else {
+                tragetValues = nextValues.filter(x => x !== '0')
+            }
+        }
+        setFieldsValue({ name: tragetValues })
+
+    }
+    render() {
+        const { getFieldProps } = this.props.form;
+        return (
+            <div>
+                <Select
+                    {...getFieldProps('name', {
+
+                    })}
+                    style={{ width: 300 }}
+                    mode="multiple"
+                    onChange={this.selectChange}
+                >
+                    {
+                        data.map((item) => <Option key={item.value}>{item.name}</Option>)
+                    }
+                </Select>
+            </div>
+        )
+    }
+
+}
+const WrappedSelectmodal = Form.create()(Selectmodal);
 class MessageList extends React.Component {
     state = {
         styleobj: {
@@ -112,6 +165,8 @@ export class ChatApp extends React.Component {
                     <button onClick={this.handleSend}>Send</button>
                 </div>
                 <h2 className={styles.test} style={{ marginLeft: '5px', marginTop: '10px' }}>你好,现在时间是:{this.state.time.toLocaleString()}</h2>
+
+                <WrappedSelectmodal />
             </div>
         );
     }
