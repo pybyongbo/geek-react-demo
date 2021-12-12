@@ -1,0 +1,71 @@
+/* .container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #ffffff;
+    user-select: none;
+  }
+  .container .table-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .container .table-container .children {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .container .table-container .family {
+    flex-direction: column;
+    flex-grow: 1;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .container .table-container .family .name {
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  .container .table-container .family .child {
+    border-top: none;
+    border: 1px solid #ccc;
+  } */
+  .container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #ffffff;
+    user-select: none;
+  }
+  .container .table-container {
+    display: flex;
+  }
+  .container .table-container .family {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+  .container .table-container .family .name {
+    width: 100%;
+    border: 1px solid #ccc;
+    text-align: center;
+    margin: 0 10px 10px;
+    padding: 5px 0;
+    cursor: pointer;
+  }
+  .container .table-container .family .name:hover {
+    color: #fff;
+    background: #98bceb;
+  }
+  .container .table-container .family .children {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .container .table-container .family .show {
+    opacity: 1;
+  }
+  
+  

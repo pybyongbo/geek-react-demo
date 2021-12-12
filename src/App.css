@@ -103,14 +103,14 @@ input {
     border: 1px solid #dedede;
 }
 
-button {
+/* button {
     color: #fff;
     background-color: #38f;
     padding: 8px 15px;
     border: none;
     cursor: pointer;
     outline: none;
-}
+} */
 
 .wizard-finish-step li {
     list-style: none;

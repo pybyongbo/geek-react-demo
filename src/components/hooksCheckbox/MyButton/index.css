@@ -1,0 +1,27 @@
+.btn{
+  background-color:transparent;
+  border:none;
+  height:34px;
+  font-size:14px;
+}
+
+.btn.btn-primary {
+  background-color: blue;
+  color:#fff;
+}
+
+.btn.btn-success {
+  background-color: green;
+  color:#fff;
+}
+
+.btn.btn-warn {
+  background-color: orange;
+  color:#333;
+  cursor: pointer;
+}
+
+.btn.btn-danger {
+  background-color: red;
+  color:#333;
+}

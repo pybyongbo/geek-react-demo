@@ -65,7 +65,7 @@ class testForm extends React.Component {
         const { getFieldError, getFieldsError, setFields, getFieldValue, getFieldsValue } = this.props.form;
         // console.log(typeof getFieldValue('code'));
         // return; 
-        this.props.form.validateFields({ first: true },(err, values) => {
+        this.props.form.validateFields({ first: true }, (err, values) => {
             // console.log(values);
             // console.log(getFieldsError().password[0], getFieldsError().username[0]);
             // if(!err){
@@ -194,7 +194,7 @@ class testForm extends React.Component {
 
                     <Form.Item label="号段" {...formItemLayout}>
                         {getFieldDecorator('createFileDate', {
-                            initialValue:'',
+                            initialValue: '',
                             rules: [{
                                 required: true,
                                 type: 'number',
@@ -213,9 +213,9 @@ class testForm extends React.Component {
                     </div>
                     <Form.Item>
                         {getFieldDecorator('price', {
-                            initialValue: {  custPayType:"",custPayDate:"" },
-                           // rules: [{ validator: this.checkPrice }],
-                        })( <AccoutInput form={form} selectfieldKey="custPayType" inputfieldKey="custPayDate22"/>)}
+                            initialValue: { custPayType: "", custPayDate: "" },
+                            // rules: [{ validator: this.checkPrice }],
+                        })(<AccoutInput form={form} selectfieldKey="custPayType" inputfieldKey="custPayDate22" />)}
                     </Form.Item>
                     {/* <AccoutInput form={form} selectfieldKey="custPayType" inputfieldKey="custPayDate" /> */}
 
@@ -233,7 +233,7 @@ class testForm extends React.Component {
                                 设置值
                         </Button>
 
-                            <Button type="primary" onClick={this.alertTips}>
+                        <Button type="primary" onClick={this.alertTips}>
                                 提示信息
                         </Button>
                         </div>

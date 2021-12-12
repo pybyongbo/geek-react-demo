@@ -50,7 +50,14 @@ import countdown from "./components/countdown"
 
 import hoccomponent from "./components/hoccomponent.js"
 
+// import useState1 from "./components/useState1.js"
+
+
+import familylayout from "./components/GE-Healthcar-Code.js"
+
 // import PortalSample from './components/dialog/portalSample';
+
+import hooksCheckbox from "./components/hooksCheckbox"
 
 const styles = {
     fontFamily: 'sans-serif',
@@ -83,10 +90,12 @@ const routeMap = {
     testDemo1:testDemo1,
     testDemo2:testDemo2,
     testHooc:testHooc,
+    // useState1:useState1,
     testForm:testForm,
     countdown:countdown,
-    hoccomponent:hoccomponent
-    
+    hoccomponent:hoccomponent,
+    familylayout:familylayout,
+    hooksCheckbox:hooksCheckbox
 
 };
 
